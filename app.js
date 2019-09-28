@@ -58,6 +58,6 @@ app.use("/", authRoutes);
 app.use("/campgrounds", campgroundsRoutes);
 app.use("/campgrounds/:id/comments", commentsRoutes);
 
-app.listen(3000, function() {
+app.listen(process.env.PORT, "0.0.0.0", function() {
 	console.log("Server has started");
 });
