@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" value="width=device-width, initial-scale=1.0">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+	<title>YelpCamp</title>
+</head>
+<body>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar" aria-label="Toggle Navigation">
+					<span class="sr-only">Toggle Navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="/" class="navbar-brand">YelpCamp</a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right">
+					<% if(!currentUser) { %>
+						<li><a href="/login"> Login</a></li>
+						<li><a href="/register"> Sign Up</a></li>
+					<% } else { %>
+						<li><a>Signed in as <%= currentUser.username %></a></li>
+						<li><a href="/logout"> Logout</a></li>
+					<% } %>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<% if(errorMessage && errorMessage.length > 0) { %>
+		<div class="container">
+			<div class="alert alert-danger alert-dismissable">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<%= errorMessage %>
+			</div>
+	<% } %>
+	<% if(successMessage && successMessage.length > 0) { %>
+		<div class="container">
+			<div class="alert alert-success alert-dismissable">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<%= successMessage %>
+			</div>
+	<% } %>
