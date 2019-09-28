@@ -16,7 +16,7 @@ var authRoutes		  = require("./routes/index"),
 	campgroundsRoutes = require("./routes/campgrounds");
 
 // Connect mongodb
-mongoose.connect("mongodb://localhost:27017/yelp_camp_v11_deployed", {useNewUrlParser: true});
+mongoose.connect("mongodb+srv://Rajat:3eJLEM6hAyoCJcrP@cluster0-vloon.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser: true});
 // Set ejs as the default template format; ejs-embedded JS
 app.set("view engine",  "ejs");
 // Tell express that style sheets are in the "public" folder
@@ -61,3 +61,5 @@ app.use("/campgrounds/:id/comments", commentsRoutes);
 app.listen(process.env.PORT, "0.0.0.0", function() {
 	console.log("Server has started");
 });
+
+
