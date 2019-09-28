@@ -15,8 +15,9 @@ var authRoutes		  = require("./routes/index"),
 	commentsRoutes 	  = require("./routes/comments"),
 	campgroundsRoutes = require("./routes/campgrounds");
 
-// Connect mongodb
-mongoose.connect("mongodb+srv://Rajat:r1a2j3a4t5@cluster0-vloon.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser: true});
+// Connect to mongodb depending on whether DATABASEURL is for localhost or for heroku
+var url = process.env.DATABASEURL || "mongodb://localhost:27017/yelp_camp_v11_deployed";
+mongoose.connect(url,{useNewUrlParser: true});
 // Set ejs as the default template format; ejs-embedded JS
 app.set("view engine",  "ejs");
 // Tell express that style sheets are in the "public" folder
