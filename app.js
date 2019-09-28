@@ -16,7 +16,7 @@ var authRoutes		  = require("./routes/index"),
 	campgroundsRoutes = require("./routes/campgrounds");
 
 // Connect mongodb
-mongoose.connect("mongodb+srv://Rajat:r1a2j3a4t5@cluster0-vloon.mongodb.net/test?retryWrites=true&w=majority");
+mongoose.connect("mongodb+srv://Rajat:r1a2j3a4t5@cluster0-vloon.mongodb.net/test?retryWrites=true&w=majority", {useNewUrlParser: true});
 // Set ejs as the default template format; ejs-embedded JS
 app.set("view engine",  "ejs");
 // Tell express that style sheets are in the "public" folder
