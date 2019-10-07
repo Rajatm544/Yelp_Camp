@@ -32,6 +32,8 @@ app.use(flash());
 // seed the DB with intial data
 // seedDB();
 
+// MomentJS Config
+app.locals.moment = require("moment");
 // PASSPORT CONFIG
 app.use(require("express-session")({
 	secret: "Some secret message that you don't want to know",
@@ -59,7 +61,7 @@ app.use("/", authRoutes);
 app.use("/campgrounds", campgroundsRoutes);
 app.use("/campgrounds/:id/comments", commentsRoutes);
 
-app.listen(process.env.PORT, "0.0.0.0", function() {
+app.listen("3000", function() {
 	console.log("Server has started");
 });
 

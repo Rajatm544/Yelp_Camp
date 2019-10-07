@@ -12,7 +12,7 @@ router.get("/", function(req, res) {
 			console.log(err);
 		} else {
 			// pass the data
-			res.render("campgrounds/index", {campGrounds: AllCampGrounds});
+			res.render("campgrounds/index", {campGrounds: AllCampGrounds, page: "campgrounds"});
 		}
 	});
 });
@@ -27,12 +27,13 @@ router.post("/", middleware.isLoggedIn, function(req, res) {
 	// Get data from form
 	var name = req.body.name;
 	var image = req.body.image;
+	var price = req.body.price;
 	var description = req.body.description;
 	var user = {
 		id: req.user._id,
 		username: req.user.username
 	};
-	var newCampground = {name: name, image: image, description: description, user: user}
+	var newCampground = {name: name, image: image, price: price, description: description, user: user}
 	// Creata a new campground and save it to the DB
 	Campground.create(newCampground, function(err, newlyCreatedCamp) {
 		if(err) {

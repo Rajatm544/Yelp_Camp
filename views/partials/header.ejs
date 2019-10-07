@@ -22,12 +22,15 @@
 			</div>
 
 			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li class="<%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : ' '%>"><a href="/campgrounds"> Home</a></li>
+				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<% if(!currentUser) { %>
-						<li><a href="/login"> Login</a></li>
-						<li><a href="/register"> Sign Up</a></li>
+						<li class="<%= typeof page !== 'undefined' && page === 'login' ? 'active' : ' ' %>"><a href="/login"> Login</a></li>
+						<li class="<%= typeof page !== 'undefined' && page === 'register' ? 'active' : ' ' %>"><a href="/register"> Sign Up</a></li>
 					<% } else { %>
-						<li><a>Signed in as <%= currentUser.username %></a></li>
+						<li><a>Signed In As <%= currentUser.username %></a></li>
 						<li><a href="/logout"> Logout</a></li>
 					<% } %>
 				</ul>
@@ -35,17 +38,22 @@
 		</div>
 	</nav>
 
-	<% if(errorMessage && errorMessage.length > 0) { %>
-		<div class="container">
-			<div class="alert alert-danger alert-dismissable">
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<%= errorMessage %>
-			</div>
-	<% } %>
-	<% if(successMessage && successMessage.length > 0) { %>
-		<div class="container">
-			<div class="alert alert-success alert-dismissable">
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<%= successMessage %>
-			</div>
-	<% } %>
+	<div class="container">
+		<% if(errorMessage && errorMessage.length > 0) { %>
+			<div class="container">
+				<div class="alert alert-danger alert-dismissable">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<%= errorMessage %>
+				</div>
+		<% } %>
+		<% if(successMessage && successMessage.length > 0) { %>
+			<div class="container">
+				<div class="alert alert-success alert-dismissable">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<%= successMessage %>
+				</div>
+		<% } %>
+	</div>
+	
+	<div class="container">
+		
