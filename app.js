@@ -1,4 +1,5 @@
-var express 	   = require("express"),
+require('dotenv').config();
+var	express 	   = require("express"),
 	bodyParser     = require("body-parser"),
 	mongoose 	   = require("mongoose"),
 	app 		   = express(),
@@ -61,7 +62,7 @@ app.use("/", authRoutes);
 app.use("/campgrounds", campgroundsRoutes);
 app.use("/campgrounds/:id/comments", commentsRoutes);
 
-app.listen(process.env.PORT, "0.0.0.0", function() {
+app.listen("3000", function() {
 	console.log("Server has started");
 });
 
